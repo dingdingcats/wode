@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>响应式导航栏 4</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            /* width: 750px; */
+            /* 因为子元素都浮动了，给container清除浮动带来的影响 */
+            overflow: hidden;
+            margin: 0 auto;
+            background-color: skyblue;
+        }
+        
+        .container ul li {
+            float: left;
+            /* width: 93.75px; */
+            height: 30px;
+            background-color: green;
+        }
+        /* 
+        响应式布局的原理：
+            就是在不同屏幕下，通过媒体查询来改变这个布局容器的大小，再改变里面子元素的排列方式和大小，
+            从而实现不同屏幕下，看到不同的页面布局和样式变化。
+            简单点说，就是 通过控制布局容器的宽度，来影响子盒子的排列和布局
+         */
+        /* 1、    屏幕尺寸 < 768px  一排3个*/
+        
+        @media screen and (max-width: 767px) {
+            /* 1、修改布局容器的宽 */
+            .container {
+                width: 730px;
+            }
+            /* 2、定义子元素的排版和布局 */
+            .container ul li {
+                width: 33.33%;
+            }
+        }
+        /* 2、 屏幕尺寸  >= 768px  ~  < 992px   一排4个*/
+        
+        @media screen and (min-width:768px) and (max-width:991px) {
+            /* 1、修改布局容器的宽 */
+            .container {
+                width: 750px;
+            }
+            /* 2、定义子元素的排版和布局 */
+            /* 一排放4个li  */
+            .container ul li {
+                width: 25%;
+            }
+        }
+        /* 3      >= 992px  ~  <1200px      一排5个 */
+        
+        @media screen and (min-width:992px) and (max-width:1199px) {
+            /* 1、修改布局容器的宽 */
+            .container {
+                width: 980px;
+            }
+            /* 2、定义子元素的排版和布局 */
+            /* 一排放5个li  */
+            .container ul li {
+                width: 20%;
+            }
+        }
+        /* 4       >= 1200px  不限制数量，能发几个，是几个 给li设计宽度 */
+        
+        @media screen and (min-width:1200px) {
+            /* 1、修改布局容器的宽 */
+            .container {
+                width: 1100px;
+            }
+            /* 2、定义子元素的排版和布局 */
+            /* 一排放5个li  */
+            .container ul li {
+                width: 93.75px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- container是我们的布局容器 -->
+    <div class="container">
+        <ul>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+        </ul>
+    </div>
+</body>
+
+</html>
